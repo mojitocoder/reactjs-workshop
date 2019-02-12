@@ -28,10 +28,20 @@ import React from 'react';
 //        Unavailable  =>    'fas fa-user-slash'
 //        Available    =>    'far fa-user'
 //        Busy         =>    'fas fa-user'
+// function GenIcon() {
+//   return
+// }
+
 function StatusBlock(props) {
   return (
     <div>
       Start HERE!
+      <br />
+      {props.status}
+      <br />
+      {props.stat}
+      <br />
+      <i className="far fa-user" />
     </div>
   );
 }
