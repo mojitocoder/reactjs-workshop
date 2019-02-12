@@ -35,7 +35,7 @@ import React from 'react';
 function StatusBlock(props) {
   return (
     <div>
-      Start HERE!
+      Hello
       <br />
       {props.status}
       <br />
