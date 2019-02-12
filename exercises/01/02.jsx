@@ -49,17 +49,23 @@ function StatusBlock(props) {
   // status passed into our component.
 
   const { status, stat } = props;
-  const classNames = getClassNameVariants(status);
+  const { color, icon } = getClassNameVariants(status);
+
+  console.log(`\tColour = ${color}`);
+
 
   return (
     <div>
       Consultant:
-      <Wrapper colorClassName={classNames.color}>
-        <Stat>{stat}</Stat>
+      <Wrapper colorClassName={color}>
+
         <StatusContainer>
-          <StatusIcon iconClassName={classNames.icon} />
+          <StatusIcon iconClassName={icon} />
           <StatusLabel label={status} />
         </StatusContainer>
+
+        <Stat>{stat}</Stat>
+
       </Wrapper>
     </div>
   );
