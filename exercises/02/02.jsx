@@ -25,10 +25,36 @@ import React from 'react';
 // ------
 // 🐨     You can COPY your solution from Exercise 02/01 as a starting point!
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { team: "" };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    // const val = document.getElementById("textInput").value;
+    const val = event.target.value;
+    console.log(`All changed:`, val);
+    this.setState({ team: val });
+  }
+
+  handleSubmit(event) {
+    // alert('A name was submitted: ' + this.state.team);
+
+    this.setState({ team: "Aphrodite"});
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div className="w-1/4">
-        Start HERE!
+        <input type="text" onChange={this.handleChange} value={this.state.team} />
+        <button onClick={this.handleSubmit}>Submit</button>
+
+        <br />
+        <br />
+        {this.state.team}
       </div>
     );
   }
