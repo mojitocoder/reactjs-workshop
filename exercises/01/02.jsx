@@ -47,18 +47,18 @@ function StatusBlock(props) {
   // You should use these in your component to ensure the
   // correct icon and colour are displayed based on the
   // status passed into our component.
-  const classNames = getClassNameVariants(props.status);
 
   const { status, stat } = props;
+  const classNames = getClassNameVariants(status);
 
   return (
     <div>
       Consultant:
-      <Wrapper colorClassName="">
+      <Wrapper colorClassName={classNames.color}>
         <Stat>{stat}</Stat>
         <StatusContainer>
+          <StatusIcon iconClassName={classNames.icon} />
           <StatusLabel label={status} />
-          <StatusIcon iconClassName="far fa-user" />
         </StatusContainer>
       </Wrapper>
     </div>
