@@ -41,7 +41,7 @@ function StatusBlock(props) {
       <br />
       {props.stat}
       <br />
-      <i className="far fa-user" />
+      <i className="fas fa-user-slash" />
     </div>
   );
 }
