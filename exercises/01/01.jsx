@@ -33,15 +33,14 @@ import React from 'react';
 // }
 
 function StatusBlock(props) {
+  const { status, stat } = props;
+
   return (
     <div>
       Hello
-      <br />
-      {props.status}
-      <br />
-      {props.stat}
-      <br />
-      <i className="fas fa-user-slash" />
+      <div>{status}</div>
+      <div>{stat}</div>
+      <div><i className="fas fa-user-slash" /></div>
     </div>
   );
 }

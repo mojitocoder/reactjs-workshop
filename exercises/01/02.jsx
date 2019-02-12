@@ -49,19 +49,18 @@ function StatusBlock(props) {
   // status passed into our component.
   const classNames = getClassNameVariants(props.status);
 
+  const { status, stat } = props;
+
   return (
     <div>
       Consultant:
-      <StatusContainer>
-        <children>
-          <StatusLabel label={props.status} />
+      <Wrapper colorClassName="">
+        <Stat>{stat}</Stat>
+        <StatusContainer>
+          <StatusLabel label={status} />
           <StatusIcon iconClassName="far fa-user" />
-          <Wrapper colorClassName="" />
-          <Stat>
-            <children>{props.stat}</children>
-          </Stat>
-        </children>
-      </StatusContainer>
+        </StatusContainer>
+      </Wrapper>
     </div>
   );
 }
