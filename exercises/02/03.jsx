@@ -38,7 +38,7 @@ import PropTypes from 'prop-types';
 class Timer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { timestamp: props.datetimestamp ? new Date(props.datetimestamp):  new Date()};
+    this.state = { timestamp: props.datetimestamp ? new Date(props.datetimestamp) : new Date() };
   }
 
   componentDidMount() {
@@ -56,7 +56,7 @@ class Timer extends React.Component {
   render() {
     return (
       <div>
-        Start HERE!
+        Local time:
         {this.state.timestamp.toLocaleTimeString()}
       </div>
     );

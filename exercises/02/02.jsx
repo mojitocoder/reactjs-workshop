@@ -54,7 +54,6 @@ class App extends React.Component {
           className="appearance-none block w-full bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
         />
         <button onClick={this.handleSubmit}>Submit</button>
-
         <br />
         <br />
         {this.state.team}
