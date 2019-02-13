@@ -38,8 +38,7 @@ import PropTypes from 'prop-types';
 class Timer extends React.Component {
   constructor(props) {
     super(props);
-    //if (props.datetimestamp) ? props.datetimestamp : new Date()
-    this.state = { timestamp: new Date() };
+    this.state = { timestamp: props.datetimestamp ? new Date(props.datetimestamp):  new Date()};
   }
 
   componentDidMount() {
