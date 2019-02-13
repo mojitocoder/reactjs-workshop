@@ -59,11 +59,27 @@ class Row extends React.Component {
       css.push(className);
     }
 
+    if (!this.props.functions && !this.props.team) return null;
+
     return (
       // Note, there is a performance penalty using `.join()` inline,
       // but it's ok for our demo app.
       <div className={css.join(' ')}>
-        Start HERE!
+        <DataColumn id='name'>
+          {this.props.name || 'Unknown Consultant'}
+        </DataColumn>
+        <DataColumn id='team'>
+          {this.props.team || 'Unknown Team'}
+        </DataColumn>
+        <DataColumn id='functions'>
+          {this.props.functions && Array.isArray(this.props.functions) && this.props.functions.length > 0 ? this.props.functions.join(', ') : '-'}
+        </DataColumn>
+        <DataColumn id='sources'>
+          {this.props.sources && Array.isArray(this.props.sources) && this.props.sources.length > 0 ? this.props.sources.join(', ') : '-'}
+        </DataColumn>
+        <DataColumn id='status'>
+          {this.props.status || 'Unknown Status'}
+        </DataColumn>
       </div>
     );
   }
