@@ -46,10 +46,22 @@ import DataColumn from 'scenes/components/DataTable/DataTableRow/DataRowColumn';
 // 🐨  The array helper, `Array.isArray` could prove useful here
 // 🐨  Remember, `undefined` is a special object in JS, which you can use to 'short-circuit' some expressions
 class Row extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { team: props.team, functions: props.functions };
+  }
+
   render() {
+    if (!this.props.functions && !this.props.team) return null;
+
     return (
       <div className="flex w-1/4">
-        Start HERE!
+        <DataColumn id='team'>
+          {this.props.team || 'Unknown Team'}
+        </DataColumn>
+        <DataColumn id='functions'>
+          {this.props.functions && Array.isArray(this.props.functions) && this.props.functions.length > 0 ? this.props.functions.join(', ') : '-'}
+        </DataColumn>
       </div>
     );
   }
