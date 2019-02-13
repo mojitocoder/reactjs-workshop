@@ -47,7 +47,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="w-1/4">
-        <input type="text" onChange={this.handleChange} value={this.state.team} />
+        <input
+          type="text"
+          onChange={this.handleChange}
+          value={this.state.team}
+          className="appearance-none block w-full bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+        />
         <button onClick={this.handleSubmit}>Submit</button>
 
         <br />
