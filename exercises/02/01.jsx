@@ -38,13 +38,14 @@ import React from 'react';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { team: "" };
+    this.state = { team: "", foo: 12 };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
     // const val = document.getElementById("textInput").value;
     const val = event.target.value;
+    // const val = event.currentTarget.value;
     console.log(`All changed:`, val);
     this.setState({ team: val });
   }
@@ -53,8 +54,14 @@ class App extends React.Component {
     return (
       <div className="w-1/4">
         Start HERE!
-        <input id="textInput" onChange={this.handleChange} />
-        {this.state.team}
+        <input
+          id="textInput"
+          onChange={this.handleChange}
+          className="appearance-none block w-full bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+        />
+        Current team: {this.state.team}
+        <br />
+        Foo is: {this.state.foo}
       </div>
     );
   }
