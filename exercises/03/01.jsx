@@ -48,19 +48,24 @@ import DataColumn from 'scenes/components/DataTable/DataTableRow/DataRowColumn';
 class Row extends React.Component {
   constructor(props) {
     super(props);
+
+    // this.props = props; => React does this for you inside React.Component
+
     this.state = { team: props.team, functions: props.functions };
   }
 
   render() {
-    if (!this.props.functions && !this.props.team) return null;
+    const { team, functions } = this.props;
+
+    if (!functions && !team) return null;
 
     return (
       <div className="flex w-1/4">
         <DataColumn id='team'>
-          {this.props.team || 'Unknown Team'}
+          {team || 'Unknown Team'}
         </DataColumn>
         <DataColumn id='functions'>
-          {this.props.functions && Array.isArray(this.props.functions) && this.props.functions.length > 0 ? this.props.functions.join(', ') : '-'}
+          {Array.isArray(functions) && functions.length > 0 ? functions.join(', ') : '-'}
         </DataColumn>
       </div>
     );
