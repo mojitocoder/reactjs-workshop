@@ -37,11 +37,18 @@ import DataRow from '../03/02';
 // 🐨  The DataTable.propTypes (below) can be useful to summary the expected shape of your props
 class DataTable extends React.Component {
   render() {
-    return (
-      <div className="w-full">
-        Start HERE!
-      </div>
-    );
+    const { data } = this.props;
+
+    if (Array.isArray(data) && data.length > 0 )
+      return (
+        <div className="w-full">
+          <DataTableHeading />
+          {data.map(item => <DataRow key={`${item.name}--${item.team}`} {...item} />)}
+          {/* {data.map((item, index) => <DataRow key={index} functions={item.functions} sources={item.sources} status={item.status} team={item.team} name={item.name} />)} */}
+        </div>
+      );
+    else
+     return <div>No data to display</div>
   }
 }
 
